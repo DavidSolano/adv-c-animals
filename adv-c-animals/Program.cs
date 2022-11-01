@@ -5,20 +5,25 @@ namespace adv_c_animals // Note: actual namespace depends on the project name.
 {
     internal class Program
     {
-        private static FileOutput _output = null;
-        private static FileInput _input = new FileInput("animals.txt");
+        private static FileOutput _output;
+        private static FileInput _input;
 
         static void Main(string[] args)
         {
             ArrayList zoo = new ArrayList();
+            
+            UserStuff userStuff = new UserStuff();
+            var useranimal = userStuff.AddingAnimal();
 
             zoo.Add(new Dog(true, "Bean"));
             zoo.Add(new Cat(9, "Charlie"));
             zoo.Add(new Teacher(44, "Stacy Read"));
+            zoo.Add(useranimal);
+            
 
             foreach (Talkable thing in zoo)
             {
-                Console.WriteLine(thing);
+                PrintOut(thing);
             }
             
             _input.FileRead();

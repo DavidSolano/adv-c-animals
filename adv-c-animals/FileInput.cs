@@ -7,7 +7,7 @@ namespace adv_c_animals;
 
 public class FileInput
 {
-    StreamReader sr = new StreamReader("animals.txt");
+    StreamReader sr;
     
     private string fileName;
 
@@ -17,6 +17,7 @@ public class FileInput
         try
         {
             sr = new StreamReader("animals.txt");
+            sr.Close();
         }
         catch (FileNotFoundException e)
         {
@@ -43,18 +44,14 @@ public class FileInput
 
     public void FileClose()
     {
-        if (sr != null)
+        try
         {
-            try
-            {
-                sr.Close();
-            }
-            catch (IOException e)
-            {
-                Console.WriteLine(e.StackTrace);
-                throw;
-            }
+            sr.Close();
+        }
+        catch (IOException e)
+        {
+            Console.WriteLine(e.StackTrace);
+            throw;
         }
     }
-    
 }

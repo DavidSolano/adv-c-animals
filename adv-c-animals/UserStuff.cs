@@ -5,7 +5,7 @@ namespace adv_c_animals;
 
 public class UserStuff
 {
-    public static void AddingAnimal()
+    public Talkable AddingAnimal()
     {
         string? choice;
         int numberChoice, miceThing;
@@ -34,10 +34,9 @@ public class UserStuff
                     
                     Console.WriteLine("How many mouses has it killed?");
                     miceThing = Convert.ToInt32(Console.ReadLine());
-                    
-                    // create an object of that type
-                    ArrayList zoo = new ArrayList();
-                    zoo.Add(new Cat(miceThing, catName));
+
+                    Talkable cat = new Cat(miceThing, catName);
+                    return cat;
                 }
 
                 if (numberChoice == 2)
@@ -56,10 +55,9 @@ public class UserStuff
                     {
                         friendly = false;
                     }
-                    
-                    // create an object of that type
-                    ArrayList zoo = new ArrayList();
-                    zoo.Add(new Dog(friendly, dogName));
+
+                    Talkable dogege = new Dog(friendly, dogName);
+                    return dogege;
                 }
             }
             else
@@ -68,11 +66,6 @@ public class UserStuff
             }
         }
 
-        
-
-       
-        
-        
-        //add the object to the ArrayList
+        return null;
     }
 }
